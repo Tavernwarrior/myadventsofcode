@@ -15,12 +15,11 @@ if __name__ == '__main__':
 	def find_end(start):
 		current = start
 		steps = 0
-		while True:
-			if current[-1] == 'Z':
-				return current, steps
+		while current[-1] != 'Z':
 			instruction = instructions[steps%len(instructions)]
 			current = map[current][0 if instruction == 'L' else 1]
 			steps += 1
+		return current, steps
 
 	print(f'Part One: {find_end("AAA")}')
 
